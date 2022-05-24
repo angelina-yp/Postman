@@ -335,6 +335,7 @@
 							"//15. Создать в окружении переменную name\r",
 							"//16. Создать в окружении переменную age\r",
 							"//17. Создать в окружении переменную salary\r",
+							"\r",
 							"//18. Передать в окружение переменную name\r",
 							"pm.environment.set(\"name\", jsonData.name )\r",
 							"//19. Передать в окружение переменную age\r",
@@ -342,7 +343,7 @@
 							"//20. Передать в окружение переменную salary\r",
 							"pm.environment.set(\"salary\", jsonData.salary )\r",
 							"//21. Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.\r",
-							"\"for (i = 0; i < jsonData.salary.length; i++) {\r",
+							"for (i = 0; i < jsonData.salary.length; i++) {\r",
 							" console.log(\"salary_cycle\", jsonData.salary[i]);\r",
 							"}"
 						],
