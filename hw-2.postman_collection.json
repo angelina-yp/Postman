@@ -341,7 +341,7 @@
 							"//19. Передать в окружение переменную age\r",
 							"pm.environment.set(\"age\", jsonData.age )\r",
 							"//20. Передать в окружение переменную salary\r",
-							"pm.environment.set(\"salary\", jsonData.salary )\r",
+							"pm.environment.set(\"salary\", jsonData.salary[0] )\r",
 							"//21. Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.\r",
 							"for (i = 0; i < jsonData.salary.length; i++) {\r",
 							" console.log(\"salary_cycle\", jsonData.salary[i]);\r",
@@ -415,6 +415,7 @@
 					"script": {
 						"exec": [
 							"//1. Вставить параметр salary из окружения в request\r",
+							"//pm.environment.set(\"salary\", jsonData.salary[0] )\r",
 							"//2. Вставить параметр age из окружения в age\r",
 							"//3. Вставить параметр name из окружения в name\r",
 							"//{{параметр}}\r",
@@ -461,21 +462,23 @@
 							"\r",
 							"//15. Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request.)\r",
 							"pm.test(\"qa_salary_after_6_months\", function () {\r",
-							"pm.expect(+qa_salary_after_6_months).to.eql(req.salary*2)\r",
+							"pm.expect(jsonData.qa_salary_after_6_months).to.eql(req.salary*2)\r",
 							"});\r",
 							"//16. Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request.)\r",
 							"\r",
 							"pm.test(\"параметр qa_salary_after_12_months равен salary из request\", function(){\r",
-							"pm.expect(+qa_salary_after_12_months).to.eql(req.salary*2.7); \r",
+							"pm.expect(jsonData.qa_salary_after_12_months).to.eql(req.salary*2.7); \r",
 							"})\r",
 							"//17. Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request.)\r",
+							"\r",
+							"\r",
 							"pm.test(\"qa_salary_after_1.5_years\", function () {\r",
-							"pm.expect(+qa_salary_after_1.5_year).to.eql(req.salary*3.3)\r",
+							"pm.expect(jsonData[\"qa_salary_after_1.5_year\"]).to.eql(req.salary*3.3)\r",
 							"});\r",
 							"\r",
 							"//18. Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request.)\r",
 							"pm.test(\"qa_salary_after_3.5_years\", function () {\r",
-							"pm.expect(+qa_salary_after_3.5_years).to.eql(req.salary*3.8)\r",
+							"pm.expect(jsonData[\"qa_salary_after_3.5_years\"]).to.eql(req.salary*3.8)\r",
 							"});\r",
 							"//19. Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request.)\r",
 							"\r",
@@ -502,11 +505,8 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "formdata",
@@ -529,7 +529,7 @@
 					]
 				},
 				"url": {
-					"raw": "162.55.220.72:5005/object_info_2?name=str&age=54&salary=2132",
+					"raw": "162.55.220.72:5005/user_info_2",
 					"host": [
 						"162",
 						"55",
@@ -538,21 +538,7 @@
 					],
 					"port": "5005",
 					"path": [
-						"object_info_2"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "str"
-						},
-						{
-							"key": "age",
-							"value": "54"
-						},
-						{
-							"key": "salary",
-							"value": "2132"
-						}
+						"user_info_2"
 					]
 				}
 			},
