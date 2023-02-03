@@ -45,15 +45,15 @@ EP_7 Method: POST EndPoint: /user_info_2 request form data: name: str age: int s
 
 response: {'start_qa_salary': salary, 'qa_salary_after_6_months': salary * 2, 'qa_salary_after_12_months': salary * 2.7, 'qa_salary_after_1.5_year': salary * 3.3, 'qa_salary_after_3.5_years': salary * 3.8, 'person': {'u_name': [user_name, salary, age], 'u_age': age, 'u_salary_5_years': salary * 4.2} }
 
-#HW_2 Postman
-
+==================
+# HW_2
+```txt
 http://162.55.220.72:5005/first
 
 Отправить запрос.
 Статус код 200
 Проверить, что в body приходит правильный string.
 http://162.55.220.72:5005/user_info_3
-
 Отправить запрос.
 Статус код 200
 Спарсить response body в json.
